@@ -1,3 +1,5 @@
+function Cons(car, cdr) { this.car = car; this.cdr = cdr; };
+
 var f34;
 var f33;
 var f32;
@@ -341,7 +343,7 @@ var v1;
         })((function (v45,v46){
             if (arguments.length < 2) throw 'too few arguments';
             if (arguments.length > 2) throw 'too many arguments';
-            return ({car: v45, cdr: v46});
+            return (new Cons((v45), (v46)));
         }));
     })();
     (function(){
@@ -351,10 +353,7 @@ var v1;
         })((function (v48){
             if (arguments.length < 1) throw 'too few arguments';
             if (arguments.length > 1) throw 'too many arguments';
-            return ((function(){
-                var tmp = v48;
-                return (typeof tmp == 'object' && 'car' in tmp);
-            })()?v3: v2);
+            return (((v48) instanceof Cons)?v3: v2);
         }));
     })();
     (function(){
@@ -557,7 +556,7 @@ var v1;
         })((function (){
             var v76= v2;
             for (var i = arguments.length-1; i>=0; i--)
-                v76 = {car: arguments[i], cdr: v76};
+                v76 = new Cons(arguments[i], v76);
             return v76;
         }));
     })();
@@ -568,10 +567,7 @@ var v1;
         })((function (v78){
             if (arguments.length < 1) throw 'too few arguments';
             if (arguments.length > 1) throw 'too many arguments';
-            return f17(((function(){
-                var tmp = v78;
-                return (typeof tmp == 'object' && 'car' in tmp);
-            })()?v3: v2));
+            return f17((((v78) instanceof Cons)?v3: v2));
         }));
     })();
     return ;
@@ -672,13 +668,13 @@ var f38;
             })((function (v86,v87){
                 if (arguments.length < 2) throw 'too few arguments';
                 if (arguments.length > 2) throw 'too many arguments';
-                return (f1(v86) !== v2 ? v87 : ({car: (function(){
+                return (f1(v86) !== v2 ? v87 : (new Cons(((function(){
                     var tmp = v86;
                     return tmp === v2? v2: tmp.car;
-                })(), cdr: f39((function(){
+                })()), (f39((function(){
                     var tmp = v86;
                     return tmp === v2? v2: tmp.cdr;
-                })(), v87)}));
+                })(), v87)))));
             }));
         })();
         return l1;
@@ -691,7 +687,7 @@ var f38;
             })((function (){
                 var v89= v2;
                 for (var i = arguments.length-1; i>=0; i--)
-                    v89 = {car: arguments[i], cdr: v89};
+                    v89 = new Cons(arguments[i], v89);
                 return f37(f38, v89, l2);
             }));
         })();
@@ -708,10 +704,10 @@ var f38;
                 return (f1(v91) !== v2 ? v92 : f40((function(){
                     var tmp = v91;
                     return tmp === v2? v2: tmp.cdr;
-                })(), ({car: (function(){
+                })(), (new Cons(((function(){
                     var tmp = v91;
                     return tmp === v2? v2: tmp.car;
-                })(), cdr: v92})));
+                })()), (v92)))));
             }));
         })();
         return l4;
@@ -807,13 +803,13 @@ var f38;
             })((function (v104,v105){
                 if (arguments.length < 2) throw 'too few arguments';
                 if (arguments.length > 2) throw 'too many arguments';
-                return (f1(v105) !== v2 ? l10 : ({car: (v104)((function(){
+                return (f1(v105) !== v2 ? l10 : (new Cons(((v104)((function(){
                     var tmp = v105;
                     return tmp === v2? v2: tmp.car;
-                })()), cdr: f45(v104, (function(){
+                })())), (f45(v104, (function(){
                     var tmp = v105;
                     return tmp === v2? v2: tmp.cdr;
-                })())}));
+                })())))));
             }));
         })();
         return l11;
@@ -943,10 +939,7 @@ var f38;
                 if (arguments.length > 1) throw 'too many arguments';
                 return (function(v121){
                     return (v121 !== v2 ? v121 : f1(v120));
-                })(((function(){
-                    var tmp = v120;
-                    return (typeof tmp == 'object' && 'car' in tmp);
-                })()?v3: v2));
+                })((((v120) instanceof Cons)?v3: v2));
             }));
         })();
         return l18;
@@ -984,13 +977,10 @@ var f38;
             })((function (v126){
                 if (arguments.length < 1) throw 'too few arguments';
                 if (arguments.length > 1) throw 'too many arguments';
-                return (((function(){
-                    var tmp = (function(){
-                        var tmp = v126;
-                        return tmp === v2? v2: tmp.cdr;
-                    })();
-                    return (typeof tmp == 'object' && 'car' in tmp);
-                })()?v3: v2) !== v2 ? f53((function(){
+                return (((((function(){
+                    var tmp = v126;
+                    return tmp === v2? v2: tmp.cdr;
+                })()) instanceof Cons)?v3: v2) !== v2 ? f53((function(){
                     var tmp = v126;
                     return tmp === v2? v2: tmp.cdr;
                 })()) : v126);
@@ -1006,19 +996,16 @@ var f38;
             })((function (v128){
                 if (arguments.length < 1) throw 'too few arguments';
                 if (arguments.length > 1) throw 'too many arguments';
-                return (((function(){
-                    var tmp = (function(){
-                        var tmp = v128;
-                        return tmp === v2? v2: tmp.cdr;
-                    })();
-                    return (typeof tmp == 'object' && 'car' in tmp);
-                })()?v3: v2) !== v2 ? ({car: (function(){
-                    var tmp = v128;
-                    return tmp === v2? v2: tmp.car;
-                })(), cdr: f54((function(){
+                return (((((function(){
                     var tmp = v128;
                     return tmp === v2? v2: tmp.cdr;
-                })())}) : v2);
+                })()) instanceof Cons)?v3: v2) !== v2 ? (new Cons(((function(){
+                    var tmp = v128;
+                    return tmp === v2? v2: tmp.car;
+                })()), (f54((function(){
+                    var tmp = v128;
+                    return tmp === v2? v2: tmp.cdr;
+                })())))) : v2);
             }));
         })();
         return l21;
@@ -1067,13 +1054,13 @@ var f38;
                         return tmp === v2? v2: tmp.cdr;
                     })());
                 })() : (function(){
-                    return ({car: (function(){
+                    return (new Cons(((function(){
                         var tmp = v134;
                         return tmp === v2? v2: tmp.car;
-                    })(), cdr: f56(v133, (function(){
+                    })()), (f56(v133, (function(){
                         var tmp = v134;
                         return tmp === v2? v2: tmp.cdr;
-                    })())});
+                    })()))));
                 })()));
             }));
         })();
@@ -1098,13 +1085,13 @@ var f38;
                         return tmp === v2? v2: tmp.cdr;
                     })());
                 })() : (function(){
-                    return ({car: (function(){
+                    return (new Cons(((function(){
                         var tmp = v137;
                         return tmp === v2? v2: tmp.car;
-                    })(), cdr: f57(v136, (function(){
+                    })()), (f57(v136, (function(){
                         var tmp = v137;
                         return tmp === v2? v2: tmp.cdr;
-                    })())});
+                    })()))));
                 })()));
             }));
         })();
@@ -1124,13 +1111,13 @@ var f38;
                     var tmp = v140;
                     return tmp === v2? v2: tmp.car;
                 })()) !== v2 ? (function(){
-                    return ({car: (function(){
+                    return (new Cons(((function(){
                         var tmp = v140;
                         return tmp === v2? v2: tmp.car;
-                    })(), cdr: f58(v139, (function(){
+                    })()), (f58(v139, (function(){
                         var tmp = v140;
                         return tmp === v2? v2: tmp.cdr;
-                    })())});
+                    })()))));
                 })() : (function(){
                     return f58(v139, (function(){
                         var tmp = v140;
@@ -1379,7 +1366,7 @@ var f65;
         })((function (){
             var v166= v2;
             for (var i = arguments.length-1; i>=0; i--)
-                v166 = {car: arguments[i], cdr: v166};
+                v166 = new Cons(arguments[i], v166);
             return f37(f44, v166, "");
         }));
     })();
@@ -1459,7 +1446,7 @@ var f68;
         })((function (){
             var v174= v2;
             for (var i = arguments.length-1; i>=0; i--)
-                v174 = {car: arguments[i], cdr: v174};
+                v174 = new Cons(arguments[i], v174);
             return (function(v175){
                 return (function(v176,v177,v178){
                     (f50(v178) !== v2 ? (function(){
@@ -1548,7 +1535,7 @@ var f6;
                 return (function(v181){
                     (function(){
                         while(f17(f14(v180)) !== v2){
-                            v181 = ({car: (function(){
+                            v181 = (new Cons(((function(){
                                 var x = v180;
                                 var y = 10;
                                 if (typeof x != 'number')
@@ -1556,7 +1543,7 @@ var f6;
                                 if (typeof y != 'number')
                                     throw 'The value ' + y + ' is not a type number.';
                                 return x%y;
-                            })(), cdr: v181});
+                            })()), (v181)));
                             v180 = f15(v180, 10);
                     }})();
                     return f66(f45((function (v182){
@@ -1684,7 +1671,7 @@ var f73;
         })((function (v192){
             if (arguments.length < 1) throw 'too few arguments';
             if (arguments.length > 1) throw 'too many arguments';
-            return ({car: v192, cdr: 0});
+            return (new Cons((v192), (0)));
         }));
     })();
     return l41;
@@ -1932,7 +1919,7 @@ var f81;
                         return v222;
                     })(f82(v220));
                 })() : (function(){
-                    return ({car: f82(v220), cdr: f81(v220)});
+                    return (new Cons((f82(v220)), (f81(v220))));
                 })())));
             })(f74(v220));
         }));
@@ -2280,13 +2267,13 @@ var f93;
             return (function(v263){
                 return (v263 !== v2 ? v263 : (function(v264){
                     return (v264 !== v2 ? v264 : (function(v265,v266){
-                        v240 = ({car: v266, cdr: v240});
-                        v239 = ({car: (function (){
+                        v240 = (new Cons((v266), (v240)));
+                        v239 = (new Cons(((function (){
                             if (arguments.length > 0) throw 'too many arguments';
                             return (f90(f63(v261, v240)) !== v2 ? v2 : (function(){
                                 return (function (){ throw f65("Undefined variable `", v265, "'"); })();
                             })());
-                        }), cdr: v239});
+                        })), (v239)));
                         return v266;
                     })((v261).name,f86(v261, l74, f92(v261), v2)));
                 })(f63(v261, v240)));
@@ -2352,13 +2339,13 @@ var f96;
             return (function(v278){
                 return (v278 !== v2 ? v278 : (function(v279){
                     return (v279 !== v2 ? v279 : (function(v280,v281){
-                        v241 = ({car: v281, cdr: v241});
-                        v239 = ({car: (function (){
+                        v241 = (new Cons((v281), (v241)));
+                        v239 = (new Cons(((function (){
                             if (arguments.length > 0) throw 'too many arguments';
                             return (f90(f63(v276, v241)) !== v2 ? v2 : (function(){
                                 return (function (){ throw f65("Undefined function `", v280, "'"); })();
                             })());
-                        }), cdr: v239});
+                        })), (v239)));
                         return v281;
                     })((v276).name,f86(v276, l80, f65("f", f6(v274 = (function(){
                         var x = v274;
@@ -2410,7 +2397,7 @@ var f98;
             if (arguments.length > 1) throw 'too many arguments';
             return (function(v288){
                 f91(v288);
-                return v285 = ({car: f65("var ", f89(v288)), cdr: v285});
+                return v285 = (new Cons((f65("var ", f89(v288))), (v285)));
             })(f93(v287, v240));
         }));
     })();
@@ -2428,7 +2415,7 @@ var f99;
             if (arguments.length > 1) throw 'too many arguments';
             return (function(v291){
                 f91(v291);
-                return v285 = ({car: f65("var ", f89(v291)), cdr: v285});
+                return v285 = (new Cons((f65("var ", f89(v291))), (v285)));
             })(f96(v290, v241));
         }));
     })();
@@ -2445,7 +2432,7 @@ var f100;
         })((function (v293,v294){
             if (arguments.length < 2) throw 'too few arguments';
             if (arguments.length > 2) throw 'too many arguments';
-            return v241 = ({car: f86(v293, l86, v294, v3), cdr: v241});
+            return v241 = (new Cons((f86(v293, l86, v294, v3)), (v241)));
         }));
     })();
     return l87;
@@ -2484,13 +2471,13 @@ var f101;
     return l89;
 })(); 
 var l90 = f3("IF");
-v295 = ({car: f33(l90, (function (v303,v304,v305,v306,v307){
+v295 = (new Cons((f33(l90, (function (v303,v304,v305,v306,v307){
     if (arguments.length < 5) throw 'too few arguments';
     if (arguments.length > 5) throw 'too many arguments';
     return f65("(", f102(v305, v303, v304), " !== ", f102(v2, v2, v2), " ? ", f102(v306, v303, v304), " : ", f102(v307, v303, v304), ")");
-})), cdr: v295}); 
+}))), (v295))); 
 var l92 = f3("*LAMBDA-LIST-KEYWORDS*");
-var l91 = {car: f3("&OPTIONAL"), cdr: {car: f3("&REST"), cdr: f3("NIL")}};
+var l91 = new Cons(f3("&OPTIONAL"),new Cons(f3("&REST"),f3("NIL")));
 var v308;
 (function(){
     (function(){
@@ -2513,13 +2500,13 @@ var f103;
                     var tmp = v310;
                     return tmp === v2? v2: tmp.car;
                 })(), v308));
-            })(f1(v310)) !== v2 ? v2 : ({car: (function(){
+            })(f1(v310)) !== v2 ? v2 : (new Cons(((function(){
                 var tmp = v310;
                 return tmp === v2? v2: tmp.car;
-            })(), cdr: f103((function(){
+            })()), (f103((function(){
                 var tmp = v310;
                 return tmp === v2? v2: tmp.cdr;
-            })())}));
+            })())))));
         }));
     })();
     return l93;
@@ -2604,11 +2591,11 @@ var f107;
     return l99;
 })(); 
 var l100 = f3("LAMBDA");
-v295 = ({car: f33(l100, (function (v322,v323,v324){
+v295 = (new Cons((f33(l100, (function (v322,v323,v324){
     if (arguments.length < 3) throw 'too few arguments';
     var v321= v2;
     for (var i = arguments.length-1; i>=3; i--)
-        v321 = {car: arguments[i], cdr: v321};
+        v321 = new Cons(arguments[i], v321);
     return (function(v325,v326,v327){
         return (function(v328,v329,v330){
             return f65("(function (", f66(f45((function (v331){
@@ -2636,7 +2623,7 @@ v295 = ({car: f33(l100, (function (v322,v323,v324){
                             return x<y;
                         })()?v3: v2) !== v2){
                             (function(v335){
-                                v333 = ({car: f65("case ", f6((function(){
+                                v333 = (new Cons((f65("case ", f6((function(){
                                     var x = v334;
                                     var y = v328;
                                     if (typeof x != 'number')
@@ -2647,7 +2634,7 @@ v295 = ({car: f33(l100, (function (v322,v323,v324){
                                 })()), ":", v164, f94((function(){
                                     var tmp = v335;
                                     return tmp === v2? v2: tmp.car;
-                                })(), v330), "=", f102(f23(v335), v330, v323), ";", v164), cdr: v333});
+                                })(), v330), "=", f102(f23(v335), v330, v323), ";", v164)), (v333)));
                                 return v334 = (function(){
                                     var x = v334;
                                     var y = 1;
@@ -2659,7 +2646,7 @@ v295 = ({car: f33(l100, (function (v322,v323,v324){
                                 })();
                             })(f52(v334, v332));
                     }})();
-                    v333 = ({car: f65("default: break;", v164), cdr: v333});
+                    v333 = (new Cons((f65("default: break;", v164)), (v333)));
                     return f66(f41(v333));
                 })();
             })(f105(v324),v2,0), "}", v164) : ""), (v327 !== v2 ? (function(v336){
@@ -2671,26 +2658,26 @@ v295 = ({car: f33(l100, (function (v322,v323,v324){
                     if (typeof y != 'number')
                         throw 'The value ' + y + ' is not a type number.';
                     return x+y;
-                })()), "; i--)", v164, f68(v336, " = ", "{car: arguments[i], cdr: "), v336, "};", v164);
+                })()), "; i--)", v164, f68(v336, " = ", "new Cons(arguments[i], "), v336, ");", v164);
             })(f94(v327, v330)) : ""), f65(f101(f54(v321), v330, v323), "return ", f102((function(){
                 var tmp = f53(v321);
                 return tmp === v2? v2: tmp.car;
             })(), v330, v323), ";")), v164, "})");
         })(f43(v325),f43(v326),f95(f39(f35(v327), v325, v326), v322));
     })(f104(v324),f106(v324),f107(v324));
-})), cdr: v295}); 
+}))), (v295))); 
 var l101 = f3("FSETQ");
-v295 = ({car: f33(l101, (function (v337,v338,v339,v340){
+v295 = (new Cons((f33(l101, (function (v337,v338,v339,v340){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return f65(f97(v339, v338), " = ", f102(v340, v337, v338));
-})), cdr: v295}); 
+}))), (v295))); 
 var l102 = f3("SETQ");
-v295 = ({car: f33(l102, (function (v341,v342,v343,v344){
+v295 = (new Cons((f33(l102, (function (v341,v342,v343,v344){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return f65(f94(v343, v341), " = ", f102(v344, v341, v342));
-})), cdr: v295}); 
+}))), (v295))); 
 var l103 = f3("ESCAPE-STRING");
 var f70;
 (function(){
@@ -2773,17 +2760,14 @@ var f108;
                 return (typeof tmp == 'object' && 'name' in tmp);
             })()?v3: v2) !== v2 ? (function(){
                 return f102(f39(f33(l104), f33(f70((v353).name))), v240, v241);
-            })() : (((function(){
-                var tmp = v353;
-                return (typeof tmp == 'object' && 'car' in tmp);
-            })()?v3: v2) !== v2 ? (function(){
-                return f65("{car: ", f108((function(){
+            })() : ((((v353) instanceof Cons)?v3: v2) !== v2 ? (function(){
+                return f65("new Cons(", f108((function(){
                     var tmp = v353;
                     return tmp === v2? v2: tmp.car;
-                })()), ", cdr: ", f108((function(){
+                })()), ",", f108((function(){
                     var tmp = v353;
                     return tmp === v2? v2: tmp.cdr;
-                })()), "}");
+                })()), ")");
             })() : v2))));
         }));
     })();
@@ -2808,7 +2792,7 @@ var f109;
             if (arguments.length < 1) throw 'too few arguments';
             if (arguments.length > 1) throw 'too many arguments';
             return (function(v357){
-                v285 = ({car: f65("var ", v357, " = ", f108(v356)), cdr: v285});
+                v285 = (new Cons((f65("var ", v357, " = ", f108(v356))), (v285)));
                 return v357;
             })(f65("l", f6(v354 = (function(){
                 var x = v354;
@@ -2824,22 +2808,22 @@ var f109;
     return l107;
 })(); 
 var l108 = f3("QUOTE");
-v295 = ({car: f33(l108, (function (v358,v359,v360){
+v295 = (new Cons((f33(l108, (function (v358,v359,v360){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return f109(v360);
-})), cdr: v295}); 
+}))), (v295))); 
 var l109 = f3("WHILE");
-v295 = ({car: f33(l109, (function (v362,v363,v364){
+v295 = (new Cons((f33(l109, (function (v362,v363,v364){
     if (arguments.length < 3) throw 'too few arguments';
     var v361= v2;
     for (var i = arguments.length-1; i>=3; i--)
-        v361 = {car: arguments[i], cdr: v361};
+        v361 = new Cons(arguments[i], v361);
     return f65("(function(){", v164, f68("while(", f102(v364, v362, v363), " !== ", f102(v2, v2, v2), "){", v164, f68(f101(v361, v362, v363))), "}})()");
-})), cdr: v295}); 
+}))), (v295))); 
 var l111 = f3("LAMBDA");
 var l110 = f3("FUNCTION");
-v295 = ({car: f33(l110, (function (v365,v366,v367){
+v295 = (new Cons((f33(l110, (function (v365,v366,v367){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return ((f36(v367) !== v2 ? (((function(){
@@ -2853,34 +2837,34 @@ v295 = ({car: f33(l110, (function (v365,v366,v367){
     })()?v3: v2) !== v2 ? (function(){
         return f97(v367, v366);
     })() : v2));
-})), cdr: v295}); 
+}))), (v295))); 
 var l113 = f3("PROGN");
 var l112 = f3("EVAL-WHEN-COMPILE");
-v295 = ({car: f33(l112, (function (v369,v370){
+v295 = (new Cons((f33(l112, (function (v369,v370){
     if (arguments.length < 2) throw 'too few arguments';
     var v368= v2;
     for (var i = arguments.length-1; i>=2; i--)
-        v368 = {car: arguments[i], cdr: v368};
-    f110(({car: l113, cdr: v368}));
+        v368 = new Cons(arguments[i], v368);
+    f110((new Cons((l113), (v368))));
     return "";
-})), cdr: v295}); 
+}))), (v295))); 
 var l114 = f3("PROGN");
-v295 = ({car: f33(l114, (function (v372,v373){
+v295 = (new Cons((f33(l114, (function (v372,v373){
     if (arguments.length < 2) throw 'too few arguments';
     var v371= v2;
     for (var i = arguments.length-1; i>=2; i--)
-        v371 = {car: arguments[i], cdr: v371};
+        v371 = new Cons(arguments[i], v371);
     return f65("(function(){", v164, f68(f101(f54(v371), v372, v373), "return ", f102((function(){
         var tmp = f53(v371);
         return tmp === v2? v2: tmp.car;
     })(), v372, v373), ";", v164), "})()");
-})), cdr: v295}); 
+}))), (v295))); 
 var l115 = f3("LET");
-v295 = ({car: f33(l115, (function (v375,v376,v377){
+v295 = (new Cons((f33(l115, (function (v375,v376,v377){
     if (arguments.length < 3) throw 'too few arguments';
     var v374= v2;
     for (var i = arguments.length-1; i>=3; i--)
-        v374 = {car: arguments[i], cdr: v374};
+        v374 = new Cons(arguments[i], v374);
     return (function(v378){
         return (function(v379,v380){
             return (function(v381){
@@ -2899,7 +2883,7 @@ v295 = ({car: f33(l115, (function (v375,v376,v377){
             })(f95(v379, v375));
         })(f45(f29, v378),f45(f30, v378));
     })(f45(f35, v377));
-})), cdr: v295}); 
+}))), (v295))); 
 var l124 = f3("BACKQUOTE-EXPAND-1");
 var l123 = f3("LIST");
 var l122 = f3("UNQUOTE-SPLICING");
@@ -2939,7 +2923,7 @@ var f111;
             })() === l118)?v3: v2) !== v2 ? (function(){
                 return f111(f111(f23(v385)));
             })() : (function(){
-                return ({car: l119, cdr: f45((function (v386){
+                return (new Cons((l119), (f45((function (v386){
                     if (arguments.length < 1) throw 'too few arguments';
                     if (arguments.length > 1) throw 'too many arguments';
                     return ((f36(v386) !== v2 ? (((function(){
@@ -2955,7 +2939,7 @@ var f111;
                     })() : (function(){
                         return f33(l123, f111(v386));
                     })()));
-                }), v385)});
+                }), v385))));
             })()))));
         }));
     })();
@@ -2981,11 +2965,11 @@ var f112;
     return l126;
 })(); 
 var l127 = f3("BACKQUOTE");
-v295 = ({car: f33(l127, (function (v389,v390,v391){
+v295 = (new Cons((f33(l127, (function (v389,v390,v391){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return f102(f111(v391), v389, v390);
-})), cdr: v295}); 
+}))), (v295))); 
 var l128 = f3("COMPILE-BOOL");
 var f113;
 (function(){
@@ -3019,95 +3003,95 @@ var f114;
     return l129;
 })(); 
 var l130 = f3("+");
-v295 = ({car: f33(l130, (function (v398,v399,v400,v401){
+v295 = (new Cons((f33(l130, (function (v398,v399,v400,v401){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v402,v403){
         return f114(v402, "+", v403);
     })(f102(v400, v398, v399),f102(v401, v398, v399));
-})), cdr: v295}); 
+}))), (v295))); 
 var l131 = f3("-");
-v295 = ({car: f33(l131, (function (v404,v405,v406,v407){
+v295 = (new Cons((f33(l131, (function (v404,v405,v406,v407){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v408,v409){
         return f114(v408, "-", v409);
     })(f102(v406, v404, v405),f102(v407, v404, v405));
-})), cdr: v295}); 
+}))), (v295))); 
 var l132 = f3("*");
-v295 = ({car: f33(l132, (function (v410,v411,v412,v413){
+v295 = (new Cons((f33(l132, (function (v410,v411,v412,v413){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v414,v415){
         return f114(v414, "*", v415);
     })(f102(v412, v410, v411),f102(v413, v410, v411));
-})), cdr: v295}); 
+}))), (v295))); 
 var l133 = f3("/");
-v295 = ({car: f33(l133, (function (v416,v417,v418,v419){
+v295 = (new Cons((f33(l133, (function (v416,v417,v418,v419){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v420,v421){
         return f114(v420, "/", v421);
     })(f102(v418, v416, v417),f102(v419, v416, v417));
-})), cdr: v295}); 
+}))), (v295))); 
 var l134 = f3("MOD");
-v295 = ({car: f33(l134, (function (v422,v423,v424,v425){
+v295 = (new Cons((f33(l134, (function (v422,v423,v424,v425){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v426,v427){
         return f114(v426, "%", v427);
     })(f102(v424, v422, v423),f102(v425, v422, v423));
-})), cdr: v295}); 
+}))), (v295))); 
 var l135 = f3("<");
-v295 = ({car: f33(l135, (function (v428,v429,v430,v431){
+v295 = (new Cons((f33(l135, (function (v428,v429,v430,v431){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v432,v433){
         return f113(f114(v432, "<", v433));
     })(f102(v430, v428, v429),f102(v431, v428, v429));
-})), cdr: v295}); 
+}))), (v295))); 
 var l136 = f3(">");
-v295 = ({car: f33(l136, (function (v434,v435,v436,v437){
+v295 = (new Cons((f33(l136, (function (v434,v435,v436,v437){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v438,v439){
         return f113(f114(v438, ">", v439));
     })(f102(v436, v434, v435),f102(v437, v434, v435));
-})), cdr: v295}); 
+}))), (v295))); 
 var l137 = f3("=");
-v295 = ({car: f33(l137, (function (v440,v441,v442,v443){
+v295 = (new Cons((f33(l137, (function (v440,v441,v442,v443){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v444,v445){
         return f113(f114(v444, "==", v445));
     })(f102(v442, v440, v441),f102(v443, v440, v441));
-})), cdr: v295}); 
+}))), (v295))); 
 var l138 = f3("<=");
-v295 = ({car: f33(l138, (function (v446,v447,v448,v449){
+v295 = (new Cons((f33(l138, (function (v446,v447,v448,v449){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v450,v451){
         return f113(f114(v450, "<=", v451));
     })(f102(v448, v446, v447),f102(v449, v446, v447));
-})), cdr: v295}); 
+}))), (v295))); 
 var l139 = f3(">=");
-v295 = ({car: f33(l139, (function (v452,v453,v454,v455){
+v295 = (new Cons((f33(l139, (function (v452,v453,v454,v455){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v456,v457){
         return f113(f114(v456, ">=", v457));
     })(f102(v454, v452, v453),f102(v455, v452, v453));
-})), cdr: v295}); 
+}))), (v295))); 
 var l140 = f3("NUMBERP");
-v295 = ({car: f33(l140, (function (v458,v459,v460){
+v295 = (new Cons((f33(l140, (function (v458,v459,v460){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v461){
         return f113(f65("(typeof (", v461, ") == \"number\")"));
     })(f102(v460, v458, v459));
-})), cdr: v295}); 
+}))), (v295))); 
 var l141 = f3("FLOOR");
-v295 = ({car: f33(l141, (function (v462,v463,v464){
+v295 = (new Cons((f33(l141, (function (v462,v463,v464){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v465){
@@ -3115,41 +3099,41 @@ v295 = ({car: f33(l141, (function (v462,v463,v464){
             return "Math.floor(x)";
         })(), ";", v164)), "})()");
     })(f102(v464, v462, v463));
-})), cdr: v295}); 
+}))), (v295))); 
 var l142 = f3("CONS");
-v295 = ({car: f33(l142, (function (v466,v467,v468,v469){
+v295 = (new Cons((f33(l142, (function (v466,v467,v468,v469){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v470,v471){
-        return f65("({car: ", v470, ", cdr: ", v471, "})");
+        return f65("(new Cons((", v470, "), (", v471, ")))");
     })(f102(v468, v466, v467),f102(v469, v466, v467));
-})), cdr: v295}); 
+}))), (v295))); 
 var l143 = f3("CONSP");
-v295 = ({car: f33(l143, (function (v472,v473,v474){
+v295 = (new Cons((f33(l143, (function (v472,v473,v474){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v475){
-        return f113(f65("(function(){", v164, f68("var tmp = ", v475, ";", v164, "return (typeof tmp == 'object' && 'car' in tmp);", v164), "})()"));
+        return f113(f65("((", v475, ") instanceof Cons)"));
     })(f102(v474, v472, v473));
-})), cdr: v295}); 
+}))), (v295))); 
 var l144 = f3("CAR");
-v295 = ({car: f33(l144, (function (v476,v477,v478){
+v295 = (new Cons((f33(l144, (function (v476,v477,v478){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v479){
         return f65("(function(){", v164, f68("var tmp = ", v479, ";", v164, "return tmp === ", f102(v2, v2, v2), "? ", f102(v2, v2, v2), ": tmp.car;", v164), "})()");
     })(f102(v478, v476, v477));
-})), cdr: v295}); 
+}))), (v295))); 
 var l145 = f3("CDR");
-v295 = ({car: f33(l145, (function (v480,v481,v482){
+v295 = (new Cons((f33(l145, (function (v480,v481,v482){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v483){
         return f65("(function(){", v164, f68("var tmp = ", v483, ";", v164, "return tmp === ", f102(v2, v2, v2), "? ", f102(v2, v2, v2), ": tmp.cdr;", v164), "})()");
     })(f102(v482, v480, v481));
-})), cdr: v295}); 
+}))), (v295))); 
 var l146 = f3("SETCAR");
-v295 = ({car: f33(l146, (function (v484,v485,v486,v487){
+v295 = (new Cons((f33(l146, (function (v484,v485,v486,v487){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v488,v489){
@@ -3157,9 +3141,9 @@ v295 = ({car: f33(l146, (function (v484,v485,v486,v487){
             return f65("(x.car = ", v489, ")");
         })(), ";", v164)), "})()");
     })(f102(v486, v484, v485),f102(v487, v484, v485));
-})), cdr: v295}); 
+}))), (v295))); 
 var l147 = f3("SETCDR");
-v295 = ({car: f33(l147, (function (v490,v491,v492,v493){
+v295 = (new Cons((f33(l147, (function (v490,v491,v492,v493){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v494,v495){
@@ -3167,17 +3151,17 @@ v295 = ({car: f33(l147, (function (v490,v491,v492,v493){
             return f65("(x.cdr = ", v495, ")");
         })(), ";", v164)), "})()");
     })(f102(v492, v490, v491),f102(v493, v490, v491));
-})), cdr: v295}); 
+}))), (v295))); 
 var l148 = f3("SYMBOLP");
-v295 = ({car: f33(l148, (function (v496,v497,v498){
+v295 = (new Cons((f33(l148, (function (v496,v497,v498){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v499){
         return f113(f65("(function(){", v164, f68("var tmp = ", v499, ";", v164, "return (typeof tmp == 'object' && 'name' in tmp);", v164), "})()"));
     })(f102(v498, v496, v497));
-})), cdr: v295}); 
+}))), (v295))); 
 var l149 = f3("MAKE-SYMBOL");
-v295 = ({car: f33(l149, (function (v500,v501,v502){
+v295 = (new Cons((f33(l149, (function (v500,v501,v502){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v503){
@@ -3185,33 +3169,33 @@ v295 = ({car: f33(l149, (function (v500,v501,v502){
             return "({name: name})";
         })(), ";", v164)), "})()");
     })(f102(v502, v500, v501));
-})), cdr: v295}); 
+}))), (v295))); 
 var l150 = f3("SYMBOL-NAME");
-v295 = ({car: f33(l150, (function (v504,v505,v506){
+v295 = (new Cons((f33(l150, (function (v504,v505,v506){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v507){
         return f65("(", v507, ").name");
     })(f102(v506, v504, v505));
-})), cdr: v295}); 
+}))), (v295))); 
 var l151 = f3("EQ");
-v295 = ({car: f33(l151, (function (v508,v509,v510,v511){
+v295 = (new Cons((f33(l151, (function (v508,v509,v510,v511){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v512,v513){
         return f113(f65("(", v512, " === ", v513, ")"));
     })(f102(v510, v508, v509),f102(v511, v508, v509));
-})), cdr: v295}); 
+}))), (v295))); 
 var l152 = f3("EQUAL");
-v295 = ({car: f33(l152, (function (v514,v515,v516,v517){
+v295 = (new Cons((f33(l152, (function (v514,v515,v516,v517){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v518,v519){
         return f113(f65("(", v518, " == ", v519, ")"));
     })(f102(v516, v514, v515),f102(v517, v514, v515));
-})), cdr: v295}); 
+}))), (v295))); 
 var l153 = f3("STRING");
-v295 = ({car: f33(l153, (function (v520,v521,v522){
+v295 = (new Cons((f33(l153, (function (v520,v521,v522){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v523){
@@ -3219,17 +3203,17 @@ v295 = ({car: f33(l153, (function (v520,v521,v522){
             return "String.fromCharCode(x)";
         })(), ";", v164)), "})()");
     })(f102(v522, v520, v521));
-})), cdr: v295}); 
+}))), (v295))); 
 var l154 = f3("STRINGP");
-v295 = ({car: f33(l154, (function (v524,v525,v526){
+v295 = (new Cons((f33(l154, (function (v524,v525,v526){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v527){
         return f113(f65("(typeof(", v527, ") == \"string\")"));
     })(f102(v526, v524, v525));
-})), cdr: v295}); 
+}))), (v295))); 
 var l155 = f3("STRING-UPCASE");
-v295 = ({car: f33(l155, (function (v528,v529,v530){
+v295 = (new Cons((f33(l155, (function (v528,v529,v530){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v531){
@@ -3237,9 +3221,9 @@ v295 = ({car: f33(l155, (function (v528,v529,v530){
             return "x.toUpperCase()";
         })(), ";", v164)), "})()");
     })(f102(v530, v528, v529));
-})), cdr: v295}); 
+}))), (v295))); 
 var l156 = f3("STRING-LENGTH");
-v295 = ({car: f33(l156, (function (v532,v533,v534){
+v295 = (new Cons((f33(l156, (function (v532,v533,v534){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v535){
@@ -3247,9 +3231,9 @@ v295 = ({car: f33(l156, (function (v532,v533,v534){
             return "x.length";
         })(), ";", v164)), "})()");
     })(f102(v534, v532, v533));
-})), cdr: v295}); 
+}))), (v295))); 
 var l157 = f3("SLICE");
-v295 = ({car: f33(l157, (function (v536,v537,v538,v539,v540){
+v295 = (new Cons((f33(l157, (function (v536,v537,v538,v539,v540){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 5) throw 'too many arguments';
     switch(arguments.length){
@@ -3258,9 +3242,9 @@ v295 = ({car: f33(l157, (function (v536,v537,v538,v539,v540){
     default: break;
     }
     return f65("(function(){", v164, f68("var str = ", f102(v538, v536, v537), ";", v164, "var a = ", f102(v539, v536, v537), ";", v164, "var b;", v164, (v540 !== v2 ? f65("b = ", f102(v540, v536, v537), ";", v164) : ""), "return str.slice(a,b);", v164), "})()");
-})), cdr: v295}); 
+}))), (v295))); 
 var l158 = f3("CHAR");
-v295 = ({car: f33(l158, (function (v541,v542,v543,v544){
+v295 = (new Cons((f33(l158, (function (v541,v542,v543,v544){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v545,v546){
@@ -3268,9 +3252,9 @@ v295 = ({car: f33(l158, (function (v541,v542,v543,v544){
             return "string.charCodeAt(index)";
         })(), ";", v164)), "})()");
     })(f102(v543, v541, v542),f102(v544, v541, v542));
-})), cdr: v295}); 
+}))), (v295))); 
 var l159 = f3("CONCAT-TWO");
-v295 = ({car: f33(l159, (function (v547,v548,v549,v550){
+v295 = (new Cons((f33(l159, (function (v547,v548,v549,v550){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v551,v552){
@@ -3278,25 +3262,25 @@ v295 = ({car: f33(l159, (function (v547,v548,v549,v550){
             return "string1.concat(string2)";
         })(), ";", v164)), "})()");
     })(f102(v549, v547, v548),f102(v550, v547, v548));
-})), cdr: v295}); 
+}))), (v295))); 
 var l160 = f3("FUNCALL");
-v295 = ({car: f33(l160, (function (v554,v555,v556){
+v295 = (new Cons((f33(l160, (function (v554,v555,v556){
     if (arguments.length < 3) throw 'too few arguments';
     var v553= v2;
     for (var i = arguments.length-1; i>=3; i--)
-        v553 = {car: arguments[i], cdr: v553};
+        v553 = new Cons(arguments[i], v553);
     return f65("(", f102(v556, v554, v555), ")(", f66(f45((function (v557){
         if (arguments.length < 1) throw 'too few arguments';
         if (arguments.length > 1) throw 'too many arguments';
         return f102(v557, v554, v555);
     }), v553), ", "), ")");
-})), cdr: v295}); 
+}))), (v295))); 
 var l161 = f3("APPLY");
-v295 = ({car: f33(l161, (function (v559,v560,v561){
+v295 = (new Cons((f33(l161, (function (v559,v560,v561){
     if (arguments.length < 3) throw 'too few arguments';
     var v558= v2;
     for (var i = arguments.length-1; i>=3; i--)
-        v558 = {car: arguments[i], cdr: v558};
+        v558 = new Cons(arguments[i], v558);
     return (f1(v558) !== v2 ? f65("(", f102(v561, v559, v560), ")()") : (function(v562,v563){
         return f65("(function(){", v164, f68("var f = ", f102(v561, v559, v560), ";", v164, "var args = [", f66(f45((function (v564){
             if (arguments.length < 1) throw 'too few arguments';
@@ -3307,9 +3291,9 @@ v295 = ({car: f33(l161, (function (v559,v560,v561){
         var tmp = f53(v558);
         return tmp === v2? v2: tmp.car;
     })()));
-})), cdr: v295}); 
+}))), (v295))); 
 var l162 = f3("JS-EVAL");
-v295 = ({car: f33(l162, (function (v565,v566,v567){
+v295 = (new Cons((f33(l162, (function (v565,v566,v567){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v568){
@@ -3317,57 +3301,57 @@ v295 = ({car: f33(l162, (function (v565,v566,v567){
             return "eval.apply(window, [string])";
         })(), ";", v164)), "})()");
     })(f102(v567, v565, v566));
-})), cdr: v295}); 
+}))), (v295))); 
 var l163 = f3("ERROR");
-v295 = ({car: f33(l163, (function (v569,v570,v571){
+v295 = (new Cons((f33(l163, (function (v569,v570,v571){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v572){
         return f65("(function (){ throw ", v572, "; })()");
     })(f102(v571, v569, v570));
-})), cdr: v295}); 
+}))), (v295))); 
 var l164 = f3("NEW");
-v295 = ({car: f33(l164, (function (v573,v574){
+v295 = (new Cons((f33(l164, (function (v573,v574){
     if (arguments.length < 2) throw 'too few arguments';
     if (arguments.length > 2) throw 'too many arguments';
     return (function(){
         return "{}";
     })();
-})), cdr: v295}); 
+}))), (v295))); 
 var l165 = f3("GET");
-v295 = ({car: f33(l165, (function (v575,v576,v577,v578){
+v295 = (new Cons((f33(l165, (function (v575,v576,v577,v578){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v579,v580){
         return f65("(function(){", v164, f68("var tmp = ", "(", v579, ")[", v580, "];", v164, "return tmp == undefined? ", f102(v2, v2, v2), ": tmp ;", v164), "})()");
     })(f102(v577, v575, v576),f102(v578, v575, v576));
-})), cdr: v295}); 
+}))), (v295))); 
 var l166 = f3("SET");
-v295 = ({car: f33(l166, (function (v581,v582,v583,v584,v585){
+v295 = (new Cons((f33(l166, (function (v581,v582,v583,v584,v585){
     if (arguments.length < 5) throw 'too few arguments';
     if (arguments.length > 5) throw 'too many arguments';
     return (function(v586,v587,v588){
         return f65("((", v586, ")[", v587, "] = ", v588, ")");
     })(f102(v583, v581, v582),f102(v584, v581, v582),f102(v585, v581, v582));
-})), cdr: v295}); 
+}))), (v295))); 
 var l167 = f3("IN");
-v295 = ({car: f33(l167, (function (v589,v590,v591,v592){
+v295 = (new Cons((f33(l167, (function (v589,v590,v591,v592){
     if (arguments.length < 4) throw 'too few arguments';
     if (arguments.length > 4) throw 'too many arguments';
     return (function(v593,v594){
         return f113(f65("((", v593, ") in (", v594, "))"));
     })(f102(v591, v589, v590),f102(v592, v589, v590));
-})), cdr: v295}); 
+}))), (v295))); 
 var l168 = f3("FUNCTIONP");
-v295 = ({car: f33(l168, (function (v595,v596,v597){
+v295 = (new Cons((f33(l168, (function (v595,v596,v597){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v598){
         return f113(f65("(typeof ", v598, " == 'function')"));
     })(f102(v597, v595, v596));
-})), cdr: v295}); 
+}))), (v295))); 
 var l169 = f3("WRITE-STRING");
-v295 = ({car: f33(l169, (function (v599,v600,v601){
+v295 = (new Cons((f33(l169, (function (v599,v600,v601){
     if (arguments.length < 3) throw 'too few arguments';
     if (arguments.length > 3) throw 'too many arguments';
     return (function(v602){
@@ -3375,7 +3359,7 @@ v295 = ({car: f33(l169, (function (v599,v600,v601){
             return "lisp.write(x)";
         })(), ";", v164)), "})()");
     })(f102(v601, v599, v600));
-})), cdr: v295}); 
+}))), (v295))); 
 var l171 = f3("MACROP");
 var l170 = f3("MACRO");
 var f115;
@@ -3555,8 +3539,8 @@ var l184 = 137;
 var l183 = 182;
 var l182 = 118;
 var l181 = 632;
-var l180 = {car: {car: f3("*LITERAL-COUNTER*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v354", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*LAMBDA-LIST-KEYWORDS*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v308", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*COMPILATIONS*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v295", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*TOPLEVEL-COMPILATIONS*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v285", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*FUNCTION-COUNTER*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v274", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*VARIABLE-COUNTER*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v257", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*FENV*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v241", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*ENV*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v240", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*COMPILATION-UNIT-CHECKS*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v239", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*EOF*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v232", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*NEWLINE*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v164", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*GENSYM-COUNTER*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v12", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("T"), cdr: {car: f3("VARIABLE"), cdr: {car: "v3", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("NIL"), cdr: {car: f3("VARIABLE"), cdr: {car: "v2", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*PACKAGE*"), cdr: {car: f3("VARIABLE"), cdr: {car: "v1", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}}}}}}}}}}}}};
-var l179 = {car: {car: f3("WITH-COMPILATION-UNIT"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("PROG1"), cdr: {car: {car: f3("PROGN"), cdr: {car: {car: f3("SETQ"), cdr: {car: f3("*COMPILATION-UNIT-CHECKS*"), cdr: {car: f3("NIL"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("SETQ"), cdr: {car: f3("*ENV*"), cdr: {car: {car: f3("REMOVE-IF-NOT"), cdr: {car: {car: f3("FUNCTION"), cdr: {car: f3("BINDING-DECLARED"), cdr: f3("NIL")}}, cdr: {car: f3("*ENV*"), cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: {car: {car: f3("SETQ"), cdr: {car: f3("*FENV*"), cdr: {car: {car: f3("REMOVE-IF-NOT"), cdr: {car: {car: f3("FUNCTION"), cdr: {car: f3("BINDING-DECLARED"), cdr: f3("NIL")}}, cdr: {car: f3("*FENV*"), cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}}}, cdr: {car: {car: f3("DOLIST"), cdr: {car: {car: f3("CHECK"), cdr: {car: f3("*COMPILATION-UNIT-CHECKS*"), cdr: f3("NIL")}}, cdr: {car: {car: f3("FUNCALL"), cdr: {car: f3("CHECK"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LS-COMPILE-TOPLEVEL"), cdr: {car: f3("FUNCTION"), cdr: {car: "f118", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("COMPILE-FUNCALL"), cdr: {car: f3("FUNCTION"), cdr: {car: "f117", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LS-MACROEXPAND-1"), cdr: {car: f3("FUNCTION"), cdr: {car: "f116", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("MACROP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f115", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("NUM-OP-NUM"), cdr: {car: f3("FUNCTION"), cdr: {car: "f114", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("TYPE-CHECK"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("DECLS"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("CONCAT"), cdr: {car: "(function(){", cdr: {car: f3("*NEWLINE*"), cdr: {car: {car: f3("INDENT"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: {car: f3("MAPCAR"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("DECL"), cdr: f3("NIL")}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("CONCAT"), cdr: {car: "var ", cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("FIRST"), cdr: {car: f3("DECL"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: " = ", cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("THIRD"), cdr: {car: f3("DECL"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: ";", cdr: {car: f3("*NEWLINE*"), cdr: f3("NIL")}}}}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("DECLS"), cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: {car: f3("MAPCAR"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("DECL"), cdr: f3("NIL")}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("CONCAT"), cdr: {car: "if (typeof ", cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("FIRST"), cdr: {car: f3("DECL"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: " != '", cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("SECOND"), cdr: {car: f3("DECL"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: "')", cdr: {car: f3("*NEWLINE*"), cdr: {car: {car: f3("INDENT"), cdr: {car: "throw 'The value ' + ", cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("FIRST"), cdr: {car: f3("DECL"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: " + ' is not a type ", cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("SECOND"), cdr: {car: f3("DECL"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: ".';", cdr: {car: f3("*NEWLINE*"), cdr: f3("NIL")}}}}}}}, cdr: f3("NIL")}}}}}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("DECLS"), cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("CONCAT"), cdr: {car: "return ", cdr: {car: {car: f3("PROGN"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: ";", cdr: {car: f3("*NEWLINE*"), cdr: f3("NIL")}}}}}, cdr: f3("NIL")}}}}, cdr: {car: "})()", cdr: f3("NIL")}}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("COMPILE-BOOL"), cdr: {car: f3("FUNCTION"), cdr: {car: "f113", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DEFINE-BUILTIN"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("ARGS"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("DEFINE-COMPILATION"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("ARGS"), cdr: f3("NIL")}}, cdr: {car: {car: f3("LET"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("MAPCAR"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("ARG"), cdr: f3("NIL")}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: {car: f3("UNQUOTE"), cdr: {car: f3("ARG"), cdr: f3("NIL")}}, cdr: {car: {car: f3("LS-COMPILE"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("ARG"), cdr: f3("NIL")}}, cdr: {car: f3("ENV"), cdr: {car: f3("FENV"), cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("ARGS"), cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("FORM"), cdr: f3("NIL")}, cdr: {car: {car: f3("BACKQUOTE-EXPAND-1"), cdr: {car: f3("FORM"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BACKQUOTE-EXPAND"), cdr: {car: f3("FUNCTION"), cdr: {car: "f112", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BACKQUOTE-EXPAND-1"), cdr: {car: f3("FUNCTION"), cdr: {car: "f111", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DEFINE-TRANSFORMATION"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("ARGS"), cdr: {car: f3("FORM"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("DEFINE-COMPILATION"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("ARGS"), cdr: f3("NIL")}}, cdr: {car: {car: f3("LS-COMPILE"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("FORM"), cdr: f3("NIL")}}, cdr: {car: f3("ENV"), cdr: {car: f3("FENV"), cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("EVAL"), cdr: {car: f3("FUNCTION"), cdr: {car: "f110", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LITERAL"), cdr: {car: f3("FUNCTION"), cdr: {car: "f109", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LITERAL->JS"), cdr: {car: f3("FUNCTION"), cdr: {car: "f108", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LAMBDA-LIST-REST-ARGUMENT"), cdr: {car: f3("FUNCTION"), cdr: {car: "f107", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LAMBDA-LIST-OPTIONAL-ARGUMENTS"), cdr: {car: f3("FUNCTION"), cdr: {car: "f106", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LAMBDA-LIST-OPTIONAL-ARGUMENTS-WITH-DEFAULT"), cdr: {car: f3("FUNCTION"), cdr: {car: "f105", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LAMBDA-LIST-REQUIRED-ARGUMENTS"), cdr: {car: f3("FUNCTION"), cdr: {car: "f104", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LIST-UNTIL-KEYWORD"), cdr: {car: f3("FUNCTION"), cdr: {car: "f103", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DEFINE-COMPILATION"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("ARGS"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("PUSH"), cdr: {car: {car: f3("LIST"), cdr: {car: {car: f3("QUOTE"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("ENV"), cdr: {car: f3("FENV"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("ARGS"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: {car: f3("*COMPILATIONS*"), cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LS-COMPILE"), cdr: {car: f3("FUNCTION"), cdr: {car: "f102", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LS-COMPILE-BLOCK"), cdr: {car: f3("FUNCTION"), cdr: {car: "f101", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("%COMPILE-DEFMACRO"), cdr: {car: f3("FUNCTION"), cdr: {car: "f100", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("%COMPILE-DEFUN"), cdr: {car: f3("FUNCTION"), cdr: {car: "f99", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("%COMPILE-DEFVAR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f98", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LOOKUP-FUNCTION-TRANSLATION"), cdr: {car: f3("FUNCTION"), cdr: {car: "f97", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LOOKUP-FUNCTION"), cdr: {car: f3("FUNCTION"), cdr: {car: "f96", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("EXTEND-LOCAL-ENV"), cdr: {car: f3("FUNCTION"), cdr: {car: "f95", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LOOKUP-VARIABLE-TRANSLATION"), cdr: {car: f3("FUNCTION"), cdr: {car: "f94", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LOOKUP-VARIABLE"), cdr: {car: f3("FUNCTION"), cdr: {car: "f93", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("GVARNAME"), cdr: {car: f3("FUNCTION"), cdr: {car: "f92", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("MARK-BINDING-AS-DECLARED"), cdr: {car: f3("FUNCTION"), cdr: {car: "f91", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BINDING-DECLARED"), cdr: {car: f3("FUNCTION"), cdr: {car: "f90", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BINDING-TRANSLATION"), cdr: {car: f3("FUNCTION"), cdr: {car: "f89", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BINDING-TYPE"), cdr: {car: f3("FUNCTION"), cdr: {car: "f88", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BINDING-NAME"), cdr: {car: f3("FUNCTION"), cdr: {car: "f87", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("MAKE-BINDING"), cdr: {car: f3("FUNCTION"), cdr: {car: "f86", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LS-READ-FROM-STRING"), cdr: {car: f3("FUNCTION"), cdr: {car: "f85", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("READ-SHARP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f84", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("READ-STRING"), cdr: {car: f3("FUNCTION"), cdr: {car: "f83", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LS-READ"), cdr: {car: f3("FUNCTION"), cdr: {car: "f82", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("%READ-LIST"), cdr: {car: f3("FUNCTION"), cdr: {car: "f81", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("SKIP-WHITESPACES-AND-COMMENTS"), cdr: {car: f3("FUNCTION"), cdr: {car: "f80", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("READ-UNTIL"), cdr: {car: f3("FUNCTION"), cdr: {car: "f79", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("TERMINALP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f78", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("SKIP-WHITESPACES"), cdr: {car: f3("FUNCTION"), cdr: {car: "f77", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("WHITESPACEP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f76", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("%READ-CHAR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f75", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("%PEEK-CHAR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f74", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("MAKE-STRING-STREAM"), cdr: {car: f3("FUNCTION"), cdr: {car: "f73", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("PRINT"), cdr: {car: f3("FUNCTION"), cdr: {car: "f72", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("WRITE-LINE"), cdr: {car: f3("FUNCTION"), cdr: {car: "f71", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("ESCAPE-STRING"), cdr: {car: f3("FUNCTION"), cdr: {car: "f70", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("PRINT-TO-STRING"), cdr: {car: f3("FUNCTION"), cdr: {car: "f69", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("INDENT"), cdr: {car: f3("FUNCTION"), cdr: {car: "f68", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("JOIN-TRAILING"), cdr: {car: f3("FUNCTION"), cdr: {car: "f67", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("JOIN"), cdr: {car: f3("FUNCTION"), cdr: {car: "f66", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CONCAT"), cdr: {car: f3("FUNCTION"), cdr: {car: "f65", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("STRING="), cdr: {car: f3("FUNCTION"), cdr: {car: "f64", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("ASSOC"), cdr: {car: f3("FUNCTION"), cdr: {car: "f63", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("EVERY"), cdr: {car: f3("FUNCTION"), cdr: {car: "f62", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("PARSE-INTEGER"), cdr: {car: f3("FUNCTION"), cdr: {car: "f61", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("SUBSEQ"), cdr: {car: f3("FUNCTION"), cdr: {car: "f60", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DIGIT-CHAR-P"), cdr: {car: f3("FUNCTION"), cdr: {car: "f59", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("REMOVE-IF-NOT"), cdr: {car: f3("FUNCTION"), cdr: {car: "f58", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("REMOVE-IF"), cdr: {car: f3("FUNCTION"), cdr: {car: "f57", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("REMOVE"), cdr: {car: f3("FUNCTION"), cdr: {car: "f56", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("MEMBER"), cdr: {car: f3("FUNCTION"), cdr: {car: "f55", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BUTLAST"), cdr: {car: f3("FUNCTION"), cdr: {car: "f54", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LAST"), cdr: {car: f3("FUNCTION"), cdr: {car: "f53", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("NTH"), cdr: {car: f3("FUNCTION"), cdr: {car: "f52", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("MINUSP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f51", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("PLUSP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f50", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("INTEGERP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f49", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CHAR="), cdr: {car: f3("FUNCTION"), cdr: {car: "f48", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CHAR-CODE"), cdr: {car: f3("FUNCTION"), cdr: {car: "f47", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CODE-CHAR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f46", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("MAPCAR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f45", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CONCAT-TWO"), cdr: {car: f3("FUNCTION"), cdr: {car: "f44", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LENGTH"), cdr: {car: f3("FUNCTION"), cdr: {car: "f43", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LIST-LENGTH"), cdr: {car: f3("FUNCTION"), cdr: {car: "f42", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("REVERSE"), cdr: {car: f3("FUNCTION"), cdr: {car: "f41", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("REVERSE-AUX"), cdr: {car: f3("FUNCTION"), cdr: {car: "f40", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("APPEND"), cdr: {car: f3("FUNCTION"), cdr: {car: "f39", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("APPEND-TWO"), cdr: {car: f3("FUNCTION"), cdr: {car: "f38", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DEFVAR"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("&OPTIONAL"), cdr: {car: f3("VALUE"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("PROGN"), cdr: {car: {car: f3("%DEFVAR"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("VALUE"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: {car: f3("QUOTE"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DEFUN"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("ARGS"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("PROGN"), cdr: {car: {car: f3("%DEFUN"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("ARGS"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: {car: {car: f3("QUOTE"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("!REDUCE"), cdr: {car: f3("FUNCTION"), cdr: {car: "f37", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LISTP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f36", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("ENSURE-LIST"), cdr: {car: f3("FUNCTION"), cdr: {car: "f35", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("PROG1"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("FORM"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: f3("VALUE"), cdr: {car: {car: f3("GENSYM"), cdr: f3("NIL")}, cdr: f3("NIL")}}, cdr: f3("NIL")}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: {car: f3("UNQUOTE"), cdr: {car: f3("VALUE"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("FORM"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("VALUE"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("OR"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("&REST"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: {car: {car: f3("COND"), cdr: {car: {car: {car: f3("NULL"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: {car: f3("NIL"), cdr: f3("NIL")}}, cdr: {car: {car: {car: f3("NULL"), cdr: {car: {car: f3("CDR"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("CAR"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("T"), cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: f3("G"), cdr: {car: {car: f3("GENSYM"), cdr: f3("NIL")}, cdr: f3("NIL")}}, cdr: f3("NIL")}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: {car: f3("UNQUOTE"), cdr: {car: f3("G"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("CAR"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}, cdr: {car: {car: f3("IF"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("G"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("G"), cdr: f3("NIL")}}, cdr: {car: {car: f3("OR"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: {car: f3("CDR"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("AND"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("&REST"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: {car: {car: f3("COND"), cdr: {car: {car: {car: f3("NULL"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: {car: f3("T"), cdr: f3("NIL")}}, cdr: {car: {car: {car: f3("NULL"), cdr: {car: {car: f3("CDR"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("CAR"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("T"), cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("IF"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("CAR"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("AND"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: {car: f3("CDR"), cdr: {car: f3("FORMS"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: f3("NIL"), cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("ECASE"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("FORM"), cdr: {car: f3("&REST"), cdr: {car: f3("CLAUSULES"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("CASE"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("FORM"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: {car: f3("APPEND"), cdr: {car: f3("CLAUSULES"), cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: {car: f3("T"), cdr: {car: {car: f3("ERROR"), cdr: {car: "ECASE expression failed.", cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CASE"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("FORM"), cdr: {car: f3("&REST"), cdr: {car: f3("CLAUSULES"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: f3("!FORM"), cdr: {car: {car: f3("GENSYM"), cdr: f3("NIL")}, cdr: f3("NIL")}}, cdr: f3("NIL")}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: {car: f3("UNQUOTE"), cdr: {car: f3("!FORM"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("FORM"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}, cdr: {car: {car: f3("COND"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: {car: f3("MAPCAR"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("CLAUSULE"), cdr: f3("NIL")}, cdr: {car: {car: f3("IF"), cdr: {car: {car: f3("EQ"), cdr: {car: {car: f3("CAR"), cdr: {car: f3("CLAUSULE"), cdr: f3("NIL")}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}, cdr: {car: f3("CLAUSULE"), cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: {car: f3("EQL"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("!FORM"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("CAR"), cdr: {car: f3("CLAUSULE"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: {car: f3("CDR"), cdr: {car: f3("CLAUSULE"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}, cdr: {car: f3("CLAUSULES"), cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("COND"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("&REST"), cdr: {car: f3("CLAUSULES"), cdr: f3("NIL")}}, cdr: {car: {car: f3("IF"), cdr: {car: {car: f3("NULL"), cdr: {car: f3("CLAUSULES"), cdr: f3("NIL")}}, cdr: {car: f3("NIL"), cdr: {car: {car: f3("IF"), cdr: {car: {car: f3("EQ"), cdr: {car: {car: f3("CAAR"), cdr: {car: f3("CLAUSULES"), cdr: f3("NIL")}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("PROGN"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: {car: f3("CDAR"), cdr: {car: f3("CLAUSULES"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("IF"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("CAAR"), cdr: {car: f3("CLAUSULES"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("PROGN"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: {car: f3("CDAR"), cdr: {car: f3("CLAUSULES"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("COND"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: {car: f3("CDR"), cdr: {car: f3("CLAUSULES"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DOTIMES"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("ITER"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: f3("G!TO"), cdr: {car: {car: f3("GENSYM"), cdr: f3("NIL")}, cdr: f3("NIL")}}, cdr: {car: {car: f3("VAR"), cdr: {car: {car: f3("FIRST"), cdr: {car: f3("ITER"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("TO"), cdr: {car: {car: f3("SECOND"), cdr: {car: f3("ITER"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("RESULT"), cdr: {car: {car: f3("THIRD"), cdr: {car: f3("ITER"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: {car: f3("UNQUOTE"), cdr: {car: f3("VAR"), cdr: f3("NIL")}}, cdr: {car: 0, cdr: f3("NIL")}}, cdr: {car: {car: {car: f3("UNQUOTE"), cdr: {car: f3("G!TO"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("TO"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("WHILE"), cdr: {car: {car: f3("<"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("VAR"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("G!TO"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: {car: {car: f3("INCF"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("VAR"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("RESULT"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DOLIST"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("ITER"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: f3("VAR"), cdr: {car: {car: f3("FIRST"), cdr: {car: f3("ITER"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("G!LIST"), cdr: {car: {car: f3("GENSYM"), cdr: f3("NIL")}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: {car: f3("UNQUOTE"), cdr: {car: f3("G!LIST"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("SECOND"), cdr: {car: f3("ITER"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: {car: f3("UNQUOTE"), cdr: {car: f3("VAR"), cdr: f3("NIL")}}, cdr: {car: f3("NIL"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("WHILE"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("G!LIST"), cdr: f3("NIL")}}, cdr: {car: {car: f3("SETQ"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("VAR"), cdr: f3("NIL")}}, cdr: {car: {car: f3("CAR"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("G!LIST"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: {car: {car: f3("SETQ"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("G!LIST"), cdr: f3("NIL")}}, cdr: {car: {car: f3("CDR"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("G!LIST"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("UNLESS"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("CONDITION"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("IF"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("CONDITION"), cdr: f3("NIL")}}, cdr: {car: f3("NIL"), cdr: {car: {car: f3("PROGN"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("WHEN"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("CONDITION"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("IF"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("CONDITION"), cdr: f3("NIL")}}, cdr: {car: {car: f3("PROGN"), cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: f3("NIL"), cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("PUSH"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("X"), cdr: {car: f3("PLACE"), cdr: f3("NIL")}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("SETQ"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("PLACE"), cdr: f3("NIL")}}, cdr: {car: {car: f3("CONS"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("X"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("PLACE"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DECF"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("X"), cdr: {car: f3("&OPTIONAL"), cdr: {car: {car: f3("DELTA"), cdr: {car: 1, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("SETQ"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("X"), cdr: f3("NIL")}}, cdr: {car: {car: f3("-"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("X"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("DELTA"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("INCF"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("X"), cdr: {car: f3("&OPTIONAL"), cdr: {car: {car: f3("DELTA"), cdr: {car: 1, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("SETQ"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("X"), cdr: f3("NIL")}}, cdr: {car: {car: f3("+"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("X"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("DELTA"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("ATOM"), cdr: {car: f3("FUNCTION"), cdr: {car: "f34", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LIST"), cdr: {car: f3("FUNCTION"), cdr: {car: "f33", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("FOURTH"), cdr: {car: f3("FUNCTION"), cdr: {car: "f32", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("THIRD"), cdr: {car: f3("FUNCTION"), cdr: {car: "f31", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("SECOND"), cdr: {car: f3("FUNCTION"), cdr: {car: "f30", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("FIRST"), cdr: {car: f3("FUNCTION"), cdr: {car: "f29", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CADDDR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f28", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CDDDR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f27", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CADDR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f26", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CDDR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f25", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CDAR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f24", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CADR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f23", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CAAR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f22", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CDR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f21", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CAR"), cdr: {car: f3("FUNCTION"), cdr: {car: "f20", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CONSP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f19", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("CONS"), cdr: {car: f3("FUNCTION"), cdr: {car: "f18", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("NOT"), cdr: {car: f3("FUNCTION"), cdr: {car: "f17", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("EQL"), cdr: {car: f3("FUNCTION"), cdr: {car: "f16", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("TRUNCATE"), cdr: {car: f3("FUNCTION"), cdr: {car: "f15", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("ZEROP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f14", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("1-"), cdr: {car: f3("FUNCTION"), cdr: {car: "f13", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("1+"), cdr: {car: f3("FUNCTION"), cdr: {car: "f12", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("/"), cdr: {car: f3("FUNCTION"), cdr: {car: "f11", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("*"), cdr: {car: f3("FUNCTION"), cdr: {car: "f10", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("-"), cdr: {car: f3("FUNCTION"), cdr: {car: "f9", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("+"), cdr: {car: f3("FUNCTION"), cdr: {car: "f8", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("="), cdr: {car: f3("FUNCTION"), cdr: {car: "f7", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("INTEGER-TO-STRING"), cdr: {car: f3("FUNCTION"), cdr: {car: "f6", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("GENSYM"), cdr: {car: f3("FUNCTION"), cdr: {car: "f5", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("FIND-SYMBOL"), cdr: {car: f3("FUNCTION"), cdr: {car: "f4", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("INTERN"), cdr: {car: f3("FUNCTION"), cdr: {car: "f3", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("INTERNP"), cdr: {car: f3("FUNCTION"), cdr: {car: "f2", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("NULL"), cdr: {car: f3("FUNCTION"), cdr: {car: "f1", cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DEFUN"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("ARGS"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("%DEFUN"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("ARGS"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("%DEFUN"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("ARGS"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("PROGN"), cdr: {car: {car: f3("EVAL-WHEN-COMPILE"), cdr: {car: {car: f3("%COMPILE-DEFUN"), cdr: {car: {car: f3("QUOTE"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("FSETQ"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: {car: {car: f3("NAMED-LAMBDA"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("SYMBOL-NAME"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("ARGS"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("NAMED-LAMBDA"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("ARGS"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: f3("X"), cdr: {car: {car: f3("GENSYM"), cdr: {car: "FN", cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("LET"), cdr: {car: {car: {car: {car: f3("UNQUOTE"), cdr: {car: f3("X"), cdr: f3("NIL")}}, cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("ARGS"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}, cdr: {car: {car: f3("SET"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("X"), cdr: f3("NIL")}}, cdr: {car: "fname", cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("X"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DEFVAR"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("&OPTIONAL"), cdr: {car: f3("VALUE"), cdr: f3("NIL")}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("%DEFVAR"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("VALUE"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("%DEFVAR"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("VALUE"), cdr: f3("NIL")}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("PROGN"), cdr: {car: {car: f3("EVAL-WHEN-COMPILE"), cdr: {car: {car: f3("%COMPILE-DEFVAR"), cdr: {car: {car: f3("QUOTE"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("SETQ"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("VALUE"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("DEFMACRO"), cdr: {car: f3("MACRO"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("NAME"), cdr: {car: f3("ARGS"), cdr: {car: f3("&REST"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}}}, cdr: {car: {car: f3("BACKQUOTE"), cdr: {car: {car: f3("EVAL-WHEN-COMPILE"), cdr: {car: {car: f3("%COMPILE-DEFMACRO"), cdr: {car: {car: f3("QUOTE"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: f3("NAME"), cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("QUOTE"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("UNQUOTE"), cdr: {car: {car: f3("MAPCAR"), cdr: {car: {car: f3("LAMBDA"), cdr: {car: {car: f3("X"), cdr: f3("NIL")}, cdr: {car: {car: f3("IF"), cdr: {car: {car: f3("EQ"), cdr: {car: f3("X"), cdr: {car: {car: f3("QUOTE"), cdr: {car: f3("&BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: {car: f3("QUOTE"), cdr: {car: f3("&REST"), cdr: f3("NIL")}}, cdr: {car: f3("X"), cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}, cdr: {car: f3("ARGS"), cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: {car: {car: f3("UNQUOTE-SPLICING"), cdr: {car: f3("BODY"), cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}, cdr: f3("NIL")}}}, cdr: {car: f3("T"), cdr: f3("NIL")}}}}, cdr: f3("NIL")}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}};
+var l180 = new Cons(new Cons(f3("*LITERAL-COUNTER*"),new Cons(f3("VARIABLE"),new Cons("v354",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*LAMBDA-LIST-KEYWORDS*"),new Cons(f3("VARIABLE"),new Cons("v308",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*COMPILATIONS*"),new Cons(f3("VARIABLE"),new Cons("v295",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*TOPLEVEL-COMPILATIONS*"),new Cons(f3("VARIABLE"),new Cons("v285",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*FUNCTION-COUNTER*"),new Cons(f3("VARIABLE"),new Cons("v274",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*VARIABLE-COUNTER*"),new Cons(f3("VARIABLE"),new Cons("v257",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*FENV*"),new Cons(f3("VARIABLE"),new Cons("v241",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*ENV*"),new Cons(f3("VARIABLE"),new Cons("v240",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*COMPILATION-UNIT-CHECKS*"),new Cons(f3("VARIABLE"),new Cons("v239",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*EOF*"),new Cons(f3("VARIABLE"),new Cons("v232",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*NEWLINE*"),new Cons(f3("VARIABLE"),new Cons("v164",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*GENSYM-COUNTER*"),new Cons(f3("VARIABLE"),new Cons("v12",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("T"),new Cons(f3("VARIABLE"),new Cons("v3",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("NIL"),new Cons(f3("VARIABLE"),new Cons("v2",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*PACKAGE*"),new Cons(f3("VARIABLE"),new Cons("v1",new Cons(f3("T"),f3("NIL"))))),f3("NIL"))))))))))))))));
+var l179 = new Cons(new Cons(f3("WITH-COMPILATION-UNIT"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL"))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("PROG1"),new Cons(new Cons(f3("PROGN"),new Cons(new Cons(f3("SETQ"),new Cons(f3("*COMPILATION-UNIT-CHECKS*"),new Cons(f3("NIL"),f3("NIL")))),new Cons(new Cons(f3("SETQ"),new Cons(f3("*ENV*"),new Cons(new Cons(f3("REMOVE-IF-NOT"),new Cons(new Cons(f3("FUNCTION"),new Cons(f3("BINDING-DECLARED"),f3("NIL"))),new Cons(f3("*ENV*"),f3("NIL")))),f3("NIL")))),new Cons(new Cons(f3("SETQ"),new Cons(f3("*FENV*"),new Cons(new Cons(f3("REMOVE-IF-NOT"),new Cons(new Cons(f3("FUNCTION"),new Cons(f3("BINDING-DECLARED"),f3("NIL"))),new Cons(f3("*FENV*"),f3("NIL")))),f3("NIL")))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL")))))),new Cons(new Cons(f3("DOLIST"),new Cons(new Cons(f3("CHECK"),new Cons(f3("*COMPILATION-UNIT-CHECKS*"),f3("NIL"))),new Cons(new Cons(f3("FUNCALL"),new Cons(f3("CHECK"),f3("NIL"))),f3("NIL")))),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LS-COMPILE-TOPLEVEL"),new Cons(f3("FUNCTION"),new Cons("f118",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("COMPILE-FUNCALL"),new Cons(f3("FUNCTION"),new Cons("f117",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LS-MACROEXPAND-1"),new Cons(f3("FUNCTION"),new Cons("f116",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("MACROP"),new Cons(f3("FUNCTION"),new Cons("f115",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("NUM-OP-NUM"),new Cons(f3("FUNCTION"),new Cons("f114",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("TYPE-CHECK"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("DECLS"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL")))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("CONCAT"),new Cons("(function(){",new Cons(f3("*NEWLINE*"),new Cons(new Cons(f3("INDENT"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(new Cons(f3("MAPCAR"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("DECL"),f3("NIL")),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("CONCAT"),new Cons("var ",new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("FIRST"),new Cons(f3("DECL"),f3("NIL"))),f3("NIL"))),new Cons(" = ",new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("THIRD"),new Cons(f3("DECL"),f3("NIL"))),f3("NIL"))),new Cons(";",new Cons(f3("*NEWLINE*"),f3("NIL")))))))),f3("NIL"))),f3("NIL")))),new Cons(f3("DECLS"),f3("NIL")))),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(new Cons(f3("MAPCAR"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("DECL"),f3("NIL")),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("CONCAT"),new Cons("if (typeof ",new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("FIRST"),new Cons(f3("DECL"),f3("NIL"))),f3("NIL"))),new Cons(" != '",new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("SECOND"),new Cons(f3("DECL"),f3("NIL"))),f3("NIL"))),new Cons("')",new Cons(f3("*NEWLINE*"),new Cons(new Cons(f3("INDENT"),new Cons("throw 'The value ' + ",new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("FIRST"),new Cons(f3("DECL"),f3("NIL"))),f3("NIL"))),new Cons(" + ' is not a type ",new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("SECOND"),new Cons(f3("DECL"),f3("NIL"))),f3("NIL"))),new Cons(".';",new Cons(f3("*NEWLINE*"),f3("NIL")))))))),f3("NIL"))))))))),f3("NIL"))),f3("NIL")))),new Cons(f3("DECLS"),f3("NIL")))),f3("NIL"))),new Cons(new Cons(f3("CONCAT"),new Cons("return ",new Cons(new Cons(f3("PROGN"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL"))),new Cons(";",new Cons(f3("*NEWLINE*"),f3("NIL")))))),f3("NIL"))))),new Cons("})()",f3("NIL")))))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("COMPILE-BOOL"),new Cons(f3("FUNCTION"),new Cons("f113",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DEFINE-BUILTIN"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("ARGS"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL"))))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("DEFINE-COMPILATION"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("ARGS"),f3("NIL"))),new Cons(new Cons(f3("LET"),new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("MAPCAR"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("ARG"),f3("NIL")),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("ARG"),f3("NIL"))),new Cons(new Cons(f3("LS-COMPILE"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("ARG"),f3("NIL"))),new Cons(f3("ENV"),new Cons(f3("FENV"),f3("NIL"))))),f3("NIL"))),f3("NIL"))),f3("NIL")))),new Cons(f3("ARGS"),f3("NIL")))),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL")))),f3("NIL"))))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("FORM"),f3("NIL")),new Cons(new Cons(f3("BACKQUOTE-EXPAND-1"),new Cons(f3("FORM"),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("BACKQUOTE-EXPAND"),new Cons(f3("FUNCTION"),new Cons("f112",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("BACKQUOTE-EXPAND-1"),new Cons(f3("FUNCTION"),new Cons("f111",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DEFINE-TRANSFORMATION"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("ARGS"),new Cons(f3("FORM"),f3("NIL")))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("DEFINE-COMPILATION"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("ARGS"),f3("NIL"))),new Cons(new Cons(f3("LS-COMPILE"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("FORM"),f3("NIL"))),new Cons(f3("ENV"),new Cons(f3("FENV"),f3("NIL"))))),f3("NIL"))))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("EVAL"),new Cons(f3("FUNCTION"),new Cons("f110",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LITERAL"),new Cons(f3("FUNCTION"),new Cons("f109",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LITERAL->JS"),new Cons(f3("FUNCTION"),new Cons("f108",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LAMBDA-LIST-REST-ARGUMENT"),new Cons(f3("FUNCTION"),new Cons("f107",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LAMBDA-LIST-OPTIONAL-ARGUMENTS"),new Cons(f3("FUNCTION"),new Cons("f106",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LAMBDA-LIST-OPTIONAL-ARGUMENTS-WITH-DEFAULT"),new Cons(f3("FUNCTION"),new Cons("f105",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LAMBDA-LIST-REQUIRED-ARGUMENTS"),new Cons(f3("FUNCTION"),new Cons("f104",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LIST-UNTIL-KEYWORD"),new Cons(f3("FUNCTION"),new Cons("f103",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DEFINE-COMPILATION"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("ARGS"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL"))))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("PUSH"),new Cons(new Cons(f3("LIST"),new Cons(new Cons(f3("QUOTE"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("ENV"),new Cons(f3("FENV"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("ARGS"),f3("NIL"))),f3("NIL")))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL")))),f3("NIL")))),new Cons(f3("*COMPILATIONS*"),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LS-COMPILE"),new Cons(f3("FUNCTION"),new Cons("f102",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LS-COMPILE-BLOCK"),new Cons(f3("FUNCTION"),new Cons("f101",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("%COMPILE-DEFMACRO"),new Cons(f3("FUNCTION"),new Cons("f100",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("%COMPILE-DEFUN"),new Cons(f3("FUNCTION"),new Cons("f99",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("%COMPILE-DEFVAR"),new Cons(f3("FUNCTION"),new Cons("f98",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LOOKUP-FUNCTION-TRANSLATION"),new Cons(f3("FUNCTION"),new Cons("f97",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LOOKUP-FUNCTION"),new Cons(f3("FUNCTION"),new Cons("f96",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("EXTEND-LOCAL-ENV"),new Cons(f3("FUNCTION"),new Cons("f95",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LOOKUP-VARIABLE-TRANSLATION"),new Cons(f3("FUNCTION"),new Cons("f94",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LOOKUP-VARIABLE"),new Cons(f3("FUNCTION"),new Cons("f93",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("GVARNAME"),new Cons(f3("FUNCTION"),new Cons("f92",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("MARK-BINDING-AS-DECLARED"),new Cons(f3("FUNCTION"),new Cons("f91",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("BINDING-DECLARED"),new Cons(f3("FUNCTION"),new Cons("f90",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("BINDING-TRANSLATION"),new Cons(f3("FUNCTION"),new Cons("f89",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("BINDING-TYPE"),new Cons(f3("FUNCTION"),new Cons("f88",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("BINDING-NAME"),new Cons(f3("FUNCTION"),new Cons("f87",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("MAKE-BINDING"),new Cons(f3("FUNCTION"),new Cons("f86",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LS-READ-FROM-STRING"),new Cons(f3("FUNCTION"),new Cons("f85",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("READ-SHARP"),new Cons(f3("FUNCTION"),new Cons("f84",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("READ-STRING"),new Cons(f3("FUNCTION"),new Cons("f83",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LS-READ"),new Cons(f3("FUNCTION"),new Cons("f82",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("%READ-LIST"),new Cons(f3("FUNCTION"),new Cons("f81",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("SKIP-WHITESPACES-AND-COMMENTS"),new Cons(f3("FUNCTION"),new Cons("f80",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("READ-UNTIL"),new Cons(f3("FUNCTION"),new Cons("f79",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("TERMINALP"),new Cons(f3("FUNCTION"),new Cons("f78",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("SKIP-WHITESPACES"),new Cons(f3("FUNCTION"),new Cons("f77",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("WHITESPACEP"),new Cons(f3("FUNCTION"),new Cons("f76",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("%READ-CHAR"),new Cons(f3("FUNCTION"),new Cons("f75",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("%PEEK-CHAR"),new Cons(f3("FUNCTION"),new Cons("f74",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("MAKE-STRING-STREAM"),new Cons(f3("FUNCTION"),new Cons("f73",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("PRINT"),new Cons(f3("FUNCTION"),new Cons("f72",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("WRITE-LINE"),new Cons(f3("FUNCTION"),new Cons("f71",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("ESCAPE-STRING"),new Cons(f3("FUNCTION"),new Cons("f70",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("PRINT-TO-STRING"),new Cons(f3("FUNCTION"),new Cons("f69",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("INDENT"),new Cons(f3("FUNCTION"),new Cons("f68",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("JOIN-TRAILING"),new Cons(f3("FUNCTION"),new Cons("f67",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("JOIN"),new Cons(f3("FUNCTION"),new Cons("f66",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CONCAT"),new Cons(f3("FUNCTION"),new Cons("f65",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("STRING="),new Cons(f3("FUNCTION"),new Cons("f64",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("ASSOC"),new Cons(f3("FUNCTION"),new Cons("f63",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("EVERY"),new Cons(f3("FUNCTION"),new Cons("f62",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("PARSE-INTEGER"),new Cons(f3("FUNCTION"),new Cons("f61",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("SUBSEQ"),new Cons(f3("FUNCTION"),new Cons("f60",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DIGIT-CHAR-P"),new Cons(f3("FUNCTION"),new Cons("f59",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("REMOVE-IF-NOT"),new Cons(f3("FUNCTION"),new Cons("f58",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("REMOVE-IF"),new Cons(f3("FUNCTION"),new Cons("f57",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("REMOVE"),new Cons(f3("FUNCTION"),new Cons("f56",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("MEMBER"),new Cons(f3("FUNCTION"),new Cons("f55",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("BUTLAST"),new Cons(f3("FUNCTION"),new Cons("f54",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LAST"),new Cons(f3("FUNCTION"),new Cons("f53",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("NTH"),new Cons(f3("FUNCTION"),new Cons("f52",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("MINUSP"),new Cons(f3("FUNCTION"),new Cons("f51",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("PLUSP"),new Cons(f3("FUNCTION"),new Cons("f50",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("INTEGERP"),new Cons(f3("FUNCTION"),new Cons("f49",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CHAR="),new Cons(f3("FUNCTION"),new Cons("f48",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CHAR-CODE"),new Cons(f3("FUNCTION"),new Cons("f47",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CODE-CHAR"),new Cons(f3("FUNCTION"),new Cons("f46",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("MAPCAR"),new Cons(f3("FUNCTION"),new Cons("f45",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CONCAT-TWO"),new Cons(f3("FUNCTION"),new Cons("f44",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LENGTH"),new Cons(f3("FUNCTION"),new Cons("f43",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LIST-LENGTH"),new Cons(f3("FUNCTION"),new Cons("f42",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("REVERSE"),new Cons(f3("FUNCTION"),new Cons("f41",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("REVERSE-AUX"),new Cons(f3("FUNCTION"),new Cons("f40",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("APPEND"),new Cons(f3("FUNCTION"),new Cons("f39",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("APPEND-TWO"),new Cons(f3("FUNCTION"),new Cons("f38",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DEFVAR"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("&OPTIONAL"),new Cons(f3("VALUE"),f3("NIL")))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("PROGN"),new Cons(new Cons(f3("%DEFVAR"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("VALUE"),f3("NIL"))),f3("NIL")))),new Cons(new Cons(f3("QUOTE"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),f3("NIL"))),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DEFUN"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("ARGS"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL"))))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("PROGN"),new Cons(new Cons(f3("%DEFUN"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("ARGS"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL"))))),new Cons(new Cons(f3("QUOTE"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),f3("NIL"))),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("!REDUCE"),new Cons(f3("FUNCTION"),new Cons("f37",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LISTP"),new Cons(f3("FUNCTION"),new Cons("f36",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("ENSURE-LIST"),new Cons(f3("FUNCTION"),new Cons("f35",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("PROG1"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("FORM"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL")))),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(f3("VALUE"),new Cons(new Cons(f3("GENSYM"),f3("NIL")),f3("NIL"))),f3("NIL")),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("VALUE"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("FORM"),f3("NIL"))),f3("NIL"))),f3("NIL")),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("VALUE"),f3("NIL"))),f3("NIL"))))),f3("NIL"))),f3("NIL")))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("OR"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("&REST"),new Cons(f3("FORMS"),f3("NIL"))),new Cons(new Cons(f3("COND"),new Cons(new Cons(new Cons(f3("NULL"),new Cons(f3("FORMS"),f3("NIL"))),new Cons(f3("NIL"),f3("NIL"))),new Cons(new Cons(new Cons(f3("NULL"),new Cons(new Cons(f3("CDR"),new Cons(f3("FORMS"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("CAR"),new Cons(f3("FORMS"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("T"),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(f3("G"),new Cons(new Cons(f3("GENSYM"),f3("NIL")),f3("NIL"))),f3("NIL")),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("G"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("CAR"),new Cons(f3("FORMS"),f3("NIL"))),f3("NIL"))),f3("NIL"))),f3("NIL")),new Cons(new Cons(f3("IF"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("G"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("G"),f3("NIL"))),new Cons(new Cons(f3("OR"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(new Cons(f3("CDR"),new Cons(f3("FORMS"),f3("NIL"))),f3("NIL"))),f3("NIL"))),f3("NIL"))))),f3("NIL")))),f3("NIL"))),f3("NIL")))),f3("NIL"))),f3("NIL"))))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("AND"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("&REST"),new Cons(f3("FORMS"),f3("NIL"))),new Cons(new Cons(f3("COND"),new Cons(new Cons(new Cons(f3("NULL"),new Cons(f3("FORMS"),f3("NIL"))),new Cons(f3("T"),f3("NIL"))),new Cons(new Cons(new Cons(f3("NULL"),new Cons(new Cons(f3("CDR"),new Cons(f3("FORMS"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("CAR"),new Cons(f3("FORMS"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("T"),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("IF"),new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("CAR"),new Cons(f3("FORMS"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("AND"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(new Cons(f3("CDR"),new Cons(f3("FORMS"),f3("NIL"))),f3("NIL"))),f3("NIL"))),new Cons(f3("NIL"),f3("NIL"))))),f3("NIL"))),f3("NIL"))),f3("NIL"))))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("ECASE"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("FORM"),new Cons(f3("&REST"),new Cons(f3("CLAUSULES"),f3("NIL")))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("CASE"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("FORM"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(new Cons(f3("APPEND"),new Cons(f3("CLAUSULES"),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(new Cons(f3("T"),new Cons(new Cons(f3("ERROR"),new Cons("ECASE expression failed.",f3("NIL"))),f3("NIL"))),f3("NIL")),f3("NIL"))),f3("NIL")))),f3("NIL"))),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CASE"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("FORM"),new Cons(f3("&REST"),new Cons(f3("CLAUSULES"),f3("NIL")))),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(f3("!FORM"),new Cons(new Cons(f3("GENSYM"),f3("NIL")),f3("NIL"))),f3("NIL")),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("!FORM"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("FORM"),f3("NIL"))),f3("NIL"))),f3("NIL")),new Cons(new Cons(f3("COND"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(new Cons(f3("MAPCAR"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("CLAUSULE"),f3("NIL")),new Cons(new Cons(f3("IF"),new Cons(new Cons(f3("EQ"),new Cons(new Cons(f3("CAR"),new Cons(f3("CLAUSULE"),f3("NIL"))),new Cons(f3("T"),f3("NIL")))),new Cons(f3("CLAUSULE"),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(new Cons(f3("EQL"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("!FORM"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("CAR"),new Cons(f3("CLAUSULE"),f3("NIL"))),f3("NIL"))),f3("NIL")))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(new Cons(f3("CDR"),new Cons(f3("CLAUSULE"),f3("NIL"))),f3("NIL"))),f3("NIL"))),f3("NIL"))),f3("NIL"))))),f3("NIL")))),new Cons(f3("CLAUSULES"),f3("NIL")))),f3("NIL"))),f3("NIL"))),f3("NIL")))),f3("NIL"))),f3("NIL")))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("COND"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("&REST"),new Cons(f3("CLAUSULES"),f3("NIL"))),new Cons(new Cons(f3("IF"),new Cons(new Cons(f3("NULL"),new Cons(f3("CLAUSULES"),f3("NIL"))),new Cons(f3("NIL"),new Cons(new Cons(f3("IF"),new Cons(new Cons(f3("EQ"),new Cons(new Cons(f3("CAAR"),new Cons(f3("CLAUSULES"),f3("NIL"))),new Cons(f3("T"),f3("NIL")))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("PROGN"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(new Cons(f3("CDAR"),new Cons(f3("CLAUSULES"),f3("NIL"))),f3("NIL"))),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("IF"),new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("CAAR"),new Cons(f3("CLAUSULES"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("PROGN"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(new Cons(f3("CDAR"),new Cons(f3("CLAUSULES"),f3("NIL"))),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("COND"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(new Cons(f3("CDR"),new Cons(f3("CLAUSULES"),f3("NIL"))),f3("NIL"))),f3("NIL"))),f3("NIL"))))),f3("NIL"))),f3("NIL"))))),f3("NIL"))))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DOTIMES"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("ITER"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL")))),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(f3("G!TO"),new Cons(new Cons(f3("GENSYM"),f3("NIL")),f3("NIL"))),new Cons(new Cons(f3("VAR"),new Cons(new Cons(f3("FIRST"),new Cons(f3("ITER"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("TO"),new Cons(new Cons(f3("SECOND"),new Cons(f3("ITER"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("RESULT"),new Cons(new Cons(f3("THIRD"),new Cons(f3("ITER"),f3("NIL"))),f3("NIL"))),f3("NIL"))))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("VAR"),f3("NIL"))),new Cons(0,f3("NIL"))),new Cons(new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("G!TO"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("TO"),f3("NIL"))),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("WHILE"),new Cons(new Cons(f3("<"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("VAR"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("G!TO"),f3("NIL"))),f3("NIL")))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),new Cons(new Cons(f3("INCF"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("VAR"),f3("NIL"))),f3("NIL"))),f3("NIL"))))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("RESULT"),f3("NIL"))),f3("NIL"))))),f3("NIL"))),f3("NIL")))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DOLIST"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("ITER"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL")))),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(f3("VAR"),new Cons(new Cons(f3("FIRST"),new Cons(f3("ITER"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("G!LIST"),new Cons(new Cons(f3("GENSYM"),f3("NIL")),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("G!LIST"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("SECOND"),new Cons(f3("ITER"),f3("NIL"))),f3("NIL"))),f3("NIL"))),new Cons(new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("VAR"),f3("NIL"))),new Cons(f3("NIL"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("WHILE"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("G!LIST"),f3("NIL"))),new Cons(new Cons(f3("SETQ"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("VAR"),f3("NIL"))),new Cons(new Cons(f3("CAR"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("G!LIST"),f3("NIL"))),f3("NIL"))),f3("NIL")))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),new Cons(new Cons(f3("SETQ"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("G!LIST"),f3("NIL"))),new Cons(new Cons(f3("CDR"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("G!LIST"),f3("NIL"))),f3("NIL"))),f3("NIL")))),f3("NIL")))))),f3("NIL")))),f3("NIL"))),f3("NIL")))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("UNLESS"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("CONDITION"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL")))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("IF"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("CONDITION"),f3("NIL"))),new Cons(f3("NIL"),new Cons(new Cons(f3("PROGN"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL"))),f3("NIL"))))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("WHEN"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("CONDITION"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL")))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("IF"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("CONDITION"),f3("NIL"))),new Cons(new Cons(f3("PROGN"),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL"))),new Cons(f3("NIL"),f3("NIL"))))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("PUSH"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("X"),new Cons(f3("PLACE"),f3("NIL"))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("SETQ"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("PLACE"),f3("NIL"))),new Cons(new Cons(f3("CONS"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("X"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("PLACE"),f3("NIL"))),f3("NIL")))),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DECF"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("X"),new Cons(f3("&OPTIONAL"),new Cons(new Cons(f3("DELTA"),new Cons(1,f3("NIL"))),f3("NIL")))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("SETQ"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("X"),f3("NIL"))),new Cons(new Cons(f3("-"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("X"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("DELTA"),f3("NIL"))),f3("NIL")))),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("INCF"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("X"),new Cons(f3("&OPTIONAL"),new Cons(new Cons(f3("DELTA"),new Cons(1,f3("NIL"))),f3("NIL")))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("SETQ"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("X"),f3("NIL"))),new Cons(new Cons(f3("+"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("X"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("DELTA"),f3("NIL"))),f3("NIL")))),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("ATOM"),new Cons(f3("FUNCTION"),new Cons("f34",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("LIST"),new Cons(f3("FUNCTION"),new Cons("f33",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("FOURTH"),new Cons(f3("FUNCTION"),new Cons("f32",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("THIRD"),new Cons(f3("FUNCTION"),new Cons("f31",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("SECOND"),new Cons(f3("FUNCTION"),new Cons("f30",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("FIRST"),new Cons(f3("FUNCTION"),new Cons("f29",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CADDDR"),new Cons(f3("FUNCTION"),new Cons("f28",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CDDDR"),new Cons(f3("FUNCTION"),new Cons("f27",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CADDR"),new Cons(f3("FUNCTION"),new Cons("f26",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CDDR"),new Cons(f3("FUNCTION"),new Cons("f25",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CDAR"),new Cons(f3("FUNCTION"),new Cons("f24",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CADR"),new Cons(f3("FUNCTION"),new Cons("f23",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CAAR"),new Cons(f3("FUNCTION"),new Cons("f22",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CDR"),new Cons(f3("FUNCTION"),new Cons("f21",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CAR"),new Cons(f3("FUNCTION"),new Cons("f20",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CONSP"),new Cons(f3("FUNCTION"),new Cons("f19",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("CONS"),new Cons(f3("FUNCTION"),new Cons("f18",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("NOT"),new Cons(f3("FUNCTION"),new Cons("f17",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("EQL"),new Cons(f3("FUNCTION"),new Cons("f16",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("TRUNCATE"),new Cons(f3("FUNCTION"),new Cons("f15",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("ZEROP"),new Cons(f3("FUNCTION"),new Cons("f14",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("1-"),new Cons(f3("FUNCTION"),new Cons("f13",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("1+"),new Cons(f3("FUNCTION"),new Cons("f12",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("/"),new Cons(f3("FUNCTION"),new Cons("f11",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("*"),new Cons(f3("FUNCTION"),new Cons("f10",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("-"),new Cons(f3("FUNCTION"),new Cons("f9",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("+"),new Cons(f3("FUNCTION"),new Cons("f8",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("="),new Cons(f3("FUNCTION"),new Cons("f7",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("INTEGER-TO-STRING"),new Cons(f3("FUNCTION"),new Cons("f6",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("GENSYM"),new Cons(f3("FUNCTION"),new Cons("f5",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("FIND-SYMBOL"),new Cons(f3("FUNCTION"),new Cons("f4",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("INTERN"),new Cons(f3("FUNCTION"),new Cons("f3",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("INTERNP"),new Cons(f3("FUNCTION"),new Cons("f2",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("NULL"),new Cons(f3("FUNCTION"),new Cons("f1",new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DEFUN"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("ARGS"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL"))))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("%DEFUN"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("ARGS"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL"))))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("%DEFUN"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("ARGS"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL"))))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("PROGN"),new Cons(new Cons(f3("EVAL-WHEN-COMPILE"),new Cons(new Cons(f3("%COMPILE-DEFUN"),new Cons(new Cons(f3("QUOTE"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),f3("NIL"))),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("FSETQ"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),new Cons(new Cons(f3("NAMED-LAMBDA"),new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("SYMBOL-NAME"),new Cons(f3("NAME"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("ARGS"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL"))))),f3("NIL")))),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("NAMED-LAMBDA"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("ARGS"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL"))))),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(f3("X"),new Cons(new Cons(f3("GENSYM"),new Cons("FN",f3("NIL"))),f3("NIL"))),f3("NIL")),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("LET"),new Cons(new Cons(new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("X"),f3("NIL"))),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("ARGS"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL")))),f3("NIL"))),f3("NIL")),new Cons(new Cons(f3("SET"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("X"),f3("NIL"))),new Cons("fname",new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),f3("NIL"))))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("X"),f3("NIL"))),f3("NIL"))))),f3("NIL"))),f3("NIL")))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DEFVAR"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("&OPTIONAL"),new Cons(f3("VALUE"),f3("NIL")))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("%DEFVAR"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("VALUE"),f3("NIL"))),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("%DEFVAR"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("VALUE"),f3("NIL"))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("PROGN"),new Cons(new Cons(f3("EVAL-WHEN-COMPILE"),new Cons(new Cons(f3("%COMPILE-DEFVAR"),new Cons(new Cons(f3("QUOTE"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),f3("NIL"))),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("SETQ"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("VALUE"),f3("NIL"))),f3("NIL")))),f3("NIL")))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),new Cons(new Cons(f3("DEFMACRO"),new Cons(f3("MACRO"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("NAME"),new Cons(f3("ARGS"),new Cons(f3("&REST"),new Cons(f3("BODY"),f3("NIL"))))),new Cons(new Cons(f3("BACKQUOTE"),new Cons(new Cons(f3("EVAL-WHEN-COMPILE"),new Cons(new Cons(f3("%COMPILE-DEFMACRO"),new Cons(new Cons(f3("QUOTE"),new Cons(new Cons(f3("UNQUOTE"),new Cons(f3("NAME"),f3("NIL"))),f3("NIL"))),new Cons(new Cons(f3("QUOTE"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("UNQUOTE"),new Cons(new Cons(f3("MAPCAR"),new Cons(new Cons(f3("LAMBDA"),new Cons(new Cons(f3("X"),f3("NIL")),new Cons(new Cons(f3("IF"),new Cons(new Cons(f3("EQ"),new Cons(f3("X"),new Cons(new Cons(f3("QUOTE"),new Cons(f3("&BODY"),f3("NIL"))),f3("NIL")))),new Cons(new Cons(f3("QUOTE"),new Cons(f3("&REST"),f3("NIL"))),new Cons(f3("X"),f3("NIL"))))),f3("NIL")))),new Cons(f3("ARGS"),f3("NIL")))),f3("NIL"))),new Cons(new Cons(f3("UNQUOTE-SPLICING"),new Cons(f3("BODY"),f3("NIL"))),f3("NIL")))),f3("NIL"))),f3("NIL")))),f3("NIL"))),f3("NIL"))),f3("NIL")))),new Cons(f3("T"),f3("NIL"))))),f3("NIL"))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
 var l178 = f3("EVAL");
 var f110;
 v241 = l179;

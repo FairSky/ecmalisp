@@ -840,7 +840,7 @@
                              (integer-to-string (+ n-required-arguments n-optional-arguments))
                              "; i--)" *newline*
                              (indent js!rest " = "
-                                     "{car: arguments[i], cdr: ") js!rest "};"
+                                     "new Cons(arguments[i], ") js!rest ");"
                                      *newline*))
                    "")
                ;; Body
@@ -879,10 +879,10 @@
     ((integerp sexp) (integer-to-string sexp))
     ((stringp sexp) (concat "\"" (escape-string sexp) "\""))
     ((symbolp sexp) (ls-compile `(intern ,(escape-string (symbol-name sexp))) *env* *fenv*))
-    ((consp sexp) (concat "{car: "
+    ((consp sexp) (concat "new Cons("
                           (literal->js (car sexp))
-                          ", cdr: "
-                          (literal->js (cdr sexp)) "}"))))
+                          ","
+                          (literal->js (cdr sexp)) ")"))))
 
 (defvar *literal-counter* 0)
 (defun literal (form)
@@ -1030,13 +1030,10 @@
   (type-check (("x" "number" x))
     "Math.floor(x)"))
 
-(define-builtin cons (x y) (concat "({car: " x ", cdr: " y "})"))
+(define-builtin cons (x y) (concat "(new Cons((" x "), (" y ")))"))
 (define-builtin consp (x)
   (compile-bool
-   (concat "(function(){" *newline*
-           (indent "var tmp = " x ";" *newline*
-                   "return (typeof tmp == 'object' && 'car' in tmp);" *newline*)
-           "})()")))
+   (concat "((" x ") instanceof Cons)")))
 
 (define-builtin car (x)
   (concat "(function(){" *newline*
@@ -1284,6 +1281,8 @@
     (setq *env* nil *fenv* nil)
     (setq *compilation-unit-checks* nil)
     (with-open-file (out output :direction :output :if-exists :supersede)
+      (write-line (concat "function Cons(car, cdr) { this.car = car; this.cdr = cdr; };" *newline*)
+                  out)
       (let* ((source (read-whole-file filename))
              (in (make-string-stream source)))
         (loop
